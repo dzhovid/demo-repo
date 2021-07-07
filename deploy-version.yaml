@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nano
+  name: nano
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nano
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nano
+    spec:
+      containers:
+      - image: nginx:1.21.1
+        name: nginx
+        resources: {}
+status: {}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:                   # This part belongs to the replication controller.
+  name: my-nginx-rset       # This name is given to each replica pod.
+  labels: 
+    nick: gino
+  annotations: 
+    phone: "9186666"
+    email: "babako@gmail.com"
+    buildversion: "5.5"  
+
+spec: 
+  template:
+    metadata:                # This part belongs to the pod.
+      name: my-nginx-pod     # hardly can find anywhere in description.
+      labels:
+        tier: front-end      # Chosen as default selector.
+    spec: 
+      containers: 
+      - name: nginx-container
+        image: nginx
+  replicas: 6
+  
+  selector:
+    matchLabels:
+      tier: front-end

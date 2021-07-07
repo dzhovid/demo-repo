@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  color: grey
+  height: "3"
+  weight: pound
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: appono

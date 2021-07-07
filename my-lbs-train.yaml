@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-lbs
+  name: my-lbs
+spec:
+  ports:
+  - name: my-port
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 32222
+  selector:
+    app: my-lbs
+    app: train-schedule
+  type: LoadBalancer
+status:
+  loadBalancer: {}
